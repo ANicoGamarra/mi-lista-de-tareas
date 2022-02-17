@@ -1,0 +1,58 @@
+/* *{
+    font-family: Oswald;
+} */
+#listado{
+    min-height: 300px;    
+}
+ul{
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0;
+}
+
+ul button{
+    /* width: 25%; */
+    width: 5px;
+    height: 40px;
+    text-align: center;
+}
+.alert.alert-warning{
+    min-height: 50px;
+}
+
+#listaTareas{
+    min-height: 230px;  
+}
+
+#sinTareas{
+    min-height: 200px;  
+}
+
+#tareas-tachadas{
+    text-decoration:line-through;
+    
+}
+h2::first-letter{
+    text-transform: uppercase;
+}
+
+#titulo{
+    font-family: Oswald;
+    font-size: 30px;
+    font-weight: bold;
+}
+#sinTareas{
+    font-family: Oswald;
+    font-style: italic;
+}
+
+@media (min-width: 768px){
+    #titulo{     
+        font-size: 40px;     
+    }
+    #sinTareas{
+        font-size: 40px;  
+    }
+
+
+}

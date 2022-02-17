@@ -1,0 +1,28 @@
+*{
+    font-family: 'EB Garamond', serif; 
+}
+#mes{
+    text-transform: capitalize;  
+    font-size: 25px;
+}
+#dia{
+    font-weight: bold;
+    font-size: 25px;
+}
+.fecha-dcha h1{        
+    font-weight: bold; 
+    text-transform: capitalize;
+    font-size: 30px;
+}
+
+@media (min-width: 768px) {
+    #mes{         
+        font-size: 35px;
+    }
+    #dia{        
+        font-size: 35px;
+    }
+    .fecha-dcha h1{              
+        font-size: 40px;
+    }
+}

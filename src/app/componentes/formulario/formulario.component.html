@@ -1,0 +1,23 @@
+<div class="container bg-light">   
+    
+    <form id="formulario">
+
+        <div class="d-sm-flex">             
+                    
+            <input type="text" placeholder="Inserte nueva tarea" #nuevaTarea class="form-control border-success border-3 mb-3" autofocus>
+        
+            <div class="d-flex justify-content-evenly" >
+
+                <button class="btn btn-success mb-3 mx-2" (click)="agregarTarea(nuevaTarea.value, $event)">Agregar</button>
+            
+                <button class="btn btn-success mb-3 mx-2" (click)="ordenarTareas($event)">Ordenar</button>
+
+            </div>                    
+            
+        </div>
+    </form>
+</div>
+
+
+
+

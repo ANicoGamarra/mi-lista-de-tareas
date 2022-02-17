@@ -1,0 +1,71 @@
+<div class="container border border-top-0 border-primary border-3 rounded-bottom bg-light">
+    <app-formulario (envioTarea)="recibirTarea($event)" (tareasOrdenadas)="ordenarTareas()"></app-formulario>
+</div>
+
+<main class="container border border-primary border-3 rounded-3 mt-3 bg-light " id="listado">
+    <div>
+        
+        <div class="container d-flex justify-content-center mt-2">
+            <h1 id="titulo">Lista de Tareas</h1>
+        </div>       
+        
+        <div *ngIf="listaTareas.length > 0 else sinTareas">
+            
+            <ul>
+                <li class="p-0 align-items-center" *ngFor="let tarea of listaTareas" >                   
+                    <div *ngIf="tarea.estado === false else tacharTarea">
+                        <div class="my-2 p-0 alert alert-warning d-flex justify-content-between align-items-center">
+
+                            <h2 class="ps-2 flex-fill">{{tarea.descripcion}}</h2> 
+                        
+                            <div class="d-flex justify-content-end botones mt-0">
+                                <button  class="btn btn-primary m-1 d-flex justify-content-center" (click)="tareaRealizada(tarea.id)"> <mat-icon id="realizada">done</mat-icon> </button>
+                                                                                    
+                                <button class="btn btn-danger m-1 d-flex justify-content-center" (click)="eliminarTarea(tarea.id)"> <mat-icon>delete</mat-icon> </button>
+                            
+                            </div>
+                        </div>              
+                    </div>
+                    <ng-template #tacharTarea >
+                        <div class="my-2 p-0 alert alert-dark d-flex justify-content-between align-items-center" >
+                             
+                                <h2 class="ps-2 text-decoration-line-through flex-fill">{{tarea.descripcion}}</h2> 
+
+                            <div class="d-flex justify-content-end botones" >
+                                <button  class="btn btn-success m-1 d-flex justify-content-center" (click)="actualizarTarea(tarea.id)"> <mat-icon id="realizada">autorenew</mat-icon> </button>
+                                                                                
+                                <button class="btn btn-danger m-1 d-flex justify-content-center" (click)="eliminarTarea(tarea.id)"> <mat-icon>delete</mat-icon> </button>
+                            </div>
+                        </div>
+                    </ng-template>                
+                        
+                </li>
+                                
+            </ul>        
+            
+        </div>
+
+        <footer *ngIf="listaTareas.length > 0" class="my-2" > 
+            <button class="btn btn-primary " (click)= borrarLista()>BORRAR</button>
+
+            <div *ngIf="borrar" class ="d-sm-flex mt-2" >
+                
+                <button class="btn btn-outline-danger me-2 mb-2 mb-sm-0" (click)="borrarTodo()">Todo</button>
+                <button class="btn btn-outline-success me-2 mb-2 mb-sm-0" (click)="borrarTareasRealizadas()">Realizadas</button>
+                <button class="btn btn-outline-primary me-2 mb-2 mb-sm-0" (click)="borrarTareasPendientes()">Pendientes</button>
+                <button class="btn btn-outline-info mt-sm-0 mb-2 mb-sm-0" (click)="cancelar()">Cancelar</button>                    
+                
+            </div>
+        </footer>
+    
+        <ng-template #sinTareas>
+            <div class="mt-2 d-flex justify-content-center" id="sinTareas">
+                <h1> ¡Sin Tareas! </h1>
+            </div>
+        </ng-template>
+
+        
+
+    </div>
+</main>
+
